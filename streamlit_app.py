@@ -37,7 +37,7 @@ async def fetch(session, url):
             company_name = "Нет данных"
 
         try:
-            main_rait = float(site.find(class_='Text__sc-vycpdy-0 jZylFz').text)
+            main_rait = float(site.find(class_='Text__sc-vycpdy-0 bNfHJq RatingsBadgestyled__StyledBadgeTitle-sc-13iioj7-1 dyVhnJ').text)
         except:
             main_rait = "Нет данных"
 
