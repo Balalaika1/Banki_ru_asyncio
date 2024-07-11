@@ -32,7 +32,7 @@ async def fetch(session, url):
         site = BeautifulSoup(site, 'lxml')
 
         try:
-            company_name = site.find(class_='CompanyHeadstyled__TextHeaderInnerStyled-sc-1co238g-4 gcdYkQ').text.replace('Отзывы клиентов МФО ', '')
+            company_name = site.find(class_='CompanyHeadstyled__TextHeaderInnerStyled-sc-1co238g-4').text.replace('Отзывы клиентов МФО ', '')
         except:
             company_name = "Нет данных"
 
