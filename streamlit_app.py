@@ -31,13 +31,15 @@ async def fetch(session, url):
         
         site = BeautifulSoup(site, 'lxml')
 
+        #Поиск всех div в class которых есть 'CompanyHeadstyled' 
         try:
-            company_name = site.find(class_='CompanyHeadstyled__TextHeaderInnerStyled-sc-1co238g-4').text.replace('Отзывы клиентов МФО ', '')
+            company_name = site.select('div[class*=CompanyHeadstyled]')[-1].text.replace('Отзывы клиентов МФО ', '')
         except:
             company_name = "Нет данных"
 
+        #Поиск всех div в class которых есть 'RatingsBadgestyled' 
         try:
-            main_rait = float(site.find(class_='Text__sc-vycpdy-0 bNfHJq RatingsBadgestyled__StyledBadgeTitle-sc-13iioj7-1 dyVhnJ').text)
+            main_rait = float(site.select('div[class*=RatingsBadgestyled]')[1].text)
         except:
             main_rait = "Нет данных"
 
